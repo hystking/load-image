@@ -1,8 +1,8 @@
 test = require "prova"
-NiceModule = require "./index.coffee"
+loadImage = require "./index.coffee"
 
-niceModule = new NiceModule arg: "nice"
-
-test "is nice", (t) ->
+test "can load image", (t) ->
   t.plan 1
-  t.equal niceModule.arg, "nice"
+  loadImage "http://i.imgur.com/sTv6xCb.gif"
+  .then (img) ->
+    t.pass()
